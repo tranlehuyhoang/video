@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>PS26819</title>
+    <link rel="icon" type="image/svg+xml" href="./vite.svg" />
+    <style>
+        /* Định dạng video để lấp đầy toàn màn hình */
+        #fullscreen-video {
+            width: 100%;
+            height: 100%;
+            object-fit: fill;
+        }
+    </style>
+</head>
+
+<body>
+    <video id="fullscreen-video" controls>
+        <source src="./video/clonesnew.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <script>
+        // Lắng nghe sự kiện click để chuyển đổi vào chế độ fullscreen
+        document.getElementById('fullscreen-video').addEventListener('click', function () {
+            var elem = document.getElementById('fullscreen-video');
+            if (elem.requestFullscreen) {
+                elem.requestFullscreen();
+            } else if (elem.mozRequestFullScreen) { /* Firefox */
+                elem.mozRequestFullScreen();
+            } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+                elem.webkitRequestFullscreen();
+            } else if (elem.msRequestFullscreen) { /* IE/Edge */
+                elem.msRequestFullscreen();
+            }
+        });
+    </script>
+</body>
+
+</html>
